@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登入系統</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .input-group {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .input-group label {
+        flex: 0 0 80px; /* 固定帳號和密碼文字的寬度 */
+        text-align: right;
+        margin-right: 10px;
+        font-size: 25px;
+      }
+      .input-group input {
+        flex: 1; /* 輸入欄位自動填滿剩餘寬度 */
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      /* input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      } */
+      input[type="submit"] {
+        /* width: 100%; */
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .header {
+        display: flex;
+        font-size: 30px;
+        width: 100%;
+        /* text-align: center; */
+        background-color: rgb(202, 181, 221);
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+      }
+      .header2 {
+        display: flex;
+        font-size: 25px;
+        width: 100%;
+        /* text-align: center; */
+        margin-left: 10px;
+        align-items: end;
+        justify-content: center;
+        height: 80px;
+      }
+      .agree_check {
+        font-size: 25px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        margin-left: 100px;
+      }
+      .agree_check label {
+        margin-right: 10px; /* 調整同意條款文本和勾選框之間的間距 */
+      }
+      input[type="checkbox"] {
+        transform: scale(1.5); /* 可以調整比例以適應您想要的大小 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>歡迎光臨，請輸入帳號密碼</div>
+    </div>
+    <div class="header2">登入系統</div>
+    <div class="container">
+      <form action="/signin" method="post" id="loginForm">
+        <div class="input-group">
+          <label for="username">帳號:</label>
+          <input type="text" id="username" name="username" />
+        </div>
+        <div class="input-group">
+          <label for="password">密碼:</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div class="agree_check">
+          <label for="terms">同意條款</label>
+          <input type="checkbox" id="terms" name="terms" />
+        </div>
+        <input type="submit" value="登入" />
+      </form>
+    </div>
+    <script>
+      // document
+      //   .getElementById("loginForm")
+      //   .addEventListener("submit", function (event) {
+      //     event.preventDefault(); // Prevent form from submitting normally
+      //     var username = document.getElementById("username").value;
+      //     var password = document.getElementById("password").value;
+      //     var checkboxcheck = document.getElementById("terms").checked;
+
+      //     if (!checkboxcheck) {
+      //       window.alert("Please check the checkbox first");
+      //     }
+      //     // else {
+      //     //   console.log("帳號:", username);
+      //     //   console.log("密碼:", password);
+      //     // }
+      //   });
+      // document.addEventListener("submit", function (event) {
+      //   var checkboxcheck = document.getElementById("terms").checked;
+      //   if (!checkboxcheck) {
+      //     window.alert("Please check the checkbox first");
+      //   }
+      // });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var form = document.getElementById("loginForm");
+        form.addEventListener("submit", function (event) {
+          var checkboxcheck = document.getElementById("terms").checked;
+          if (!checkboxcheck) {
+            window.alert("Please check the checkbox first");
+            event.preventDefault(); // 阻止表單提交
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

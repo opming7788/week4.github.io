@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .header {
+        display: flex;
+        font-size: 30px;
+        width: 100%;
+        /* text-align: center; */
+        background-color: rgb(202, 181, 221);
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+      }
+      .header2 {
+        display: flex;
+        font-size: 25px;
+        width: 100%;
+        /* text-align: center; */
+        margin-left: 10px;
+        align-items: end;
+        justify-content: center;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>失敗頁面</div>
+    </div>
+    <div class="header2">{{message}}</div>
+    <div class="header2"><a href="/">返回首頁</a></div>
+  </body>
+</html>
