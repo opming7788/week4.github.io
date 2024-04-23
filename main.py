@@ -3,6 +3,10 @@ from fastapi.responses import HTMLResponse,RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi import Depends
 from starlette.middleware.sessions import SessionMiddleware
+from fastapi import Path
+from fastapi.responses import JSONResponse
+
+
 
 app = FastAPI()
 
@@ -50,7 +54,14 @@ async def login_failure(request: Request= None,message:str= None):
 
     return templates.TemplateResponse("login_failure.html", {"request": request,"message": message})
     
-   
+@app.get("/square/{integer}",response_class=HTMLResponse)
+async def mycalculation(request: Request,integer:int = Path(...)):
+    
+    result=integer**2
+    return templates.TemplateResponse("square.html", {"request": request,"result": result})
+
+
+
 
 
 if __name__ == "__main__":

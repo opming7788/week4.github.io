@@ -106,30 +106,16 @@
         <input type="submit" value="登入" />
       </form>
     </div>
+    <hr />
+    <div class="header2">計算正整數的平方</div>
+    <div class="container">
+      <div class="input-group">
+        <label for="integer">正整數</label>
+        <input type="text" id="integer" name="integer" />
+      </div>
+      <button onclick="calculateSquare()">計算</button>
+    </div>
     <script>
-      // document
-      //   .getElementById("loginForm")
-      //   .addEventListener("submit", function (event) {
-      //     event.preventDefault(); // Prevent form from submitting normally
-      //     var username = document.getElementById("username").value;
-      //     var password = document.getElementById("password").value;
-      //     var checkboxcheck = document.getElementById("terms").checked;
-
-      //     if (!checkboxcheck) {
-      //       window.alert("Please check the checkbox first");
-      //     }
-      //     // else {
-      //     //   console.log("帳號:", username);
-      //     //   console.log("密碼:", password);
-      //     // }
-      //   });
-      // document.addEventListener("submit", function (event) {
-      //   var checkboxcheck = document.getElementById("terms").checked;
-      //   if (!checkboxcheck) {
-      //     window.alert("Please check the checkbox first");
-      //   }
-      // });
-
       document.addEventListener("DOMContentLoaded", function () {
         var form = document.getElementById("loginForm");
         form.addEventListener("submit", function (event) {
@@ -140,6 +126,19 @@
           }
         });
       });
+
+      function calculateSquare() {
+        var integer = document.getElementById("integer").value;
+        // 檢查輸入是否為正整數
+        if (!/^\d+$/.test(integer)) {
+          alert("請輸入一個正整數");
+          return;
+        }
+        // 构建 URL，將整數添加到路徑中
+        var url = "square/" + integer;
+        // 重定向到計算頁面
+        window.location.href = url;
+      }
     </script>
   </body>
 </html>
